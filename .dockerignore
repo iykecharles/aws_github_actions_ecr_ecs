@@ -1,0 +1,24 @@
+# Ignore binaries
+
+*.exe
+*.out
+
+# Ignore build and dependency directories
+bin/
+pkg/
+vendor/
+
+# Ignore Go test cache
+*.test
+*.cover
+*.prof
+
+# Ignore configuration and temporary files
+.env
+*.log
+*.tmp
+*.swp
+
+# Ignore version control directories
+.git
+.gitignore

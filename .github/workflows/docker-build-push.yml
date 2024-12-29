@@ -1,0 +1,39 @@
+name: Build and Push Docker Image to ECR
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::827950560876:role/iykecharles316ssa_ecr_push_role
+          role-session-name: github-actions-session-project1
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1 
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, tag, and push image to Amazon ECR
+        id: build-image
+        env:
+          ECR_REPOSITORY: golang-app
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          FULL_ECR_IMAGE: ${{ steps.login-ecr.outputs.registry }}/aws_ecr_ecs_github_actions:latest
+          IMAGE_TAG: latest 
+          IMAGE_NAME: golang-app 
+        run: |
+          docker build -t $IMAGE_NAME .
+          docker tag $IMAGE_NAME:latest $ECR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG

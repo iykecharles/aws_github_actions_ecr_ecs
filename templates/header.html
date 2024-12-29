@@ -1,0 +1,64 @@
+{{define "header"}}
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link rel="stylesheet" href="static/style.css">
+	<title>Staff Website</title>
+</head>
+
+<body>
+  <!-- navbar -->
+	<nav class="navbar navbar-expand-lg bg-dark text-light navbar-dark py-3 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">Staff Data</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          {{if .Au}}
+          <li class="nav-item">
+            <a href="/datavault" class="nav-link">datavault</a>
+          </li>
+          <li class="nav-item">
+            <a href="/logout" class="nav-link">Logout</a>
+          </li>
+          {{else}}
+          <li class="nav-item">
+            <a href="/register" class="nav-link">SignUp</a>
+          </li>
+          <li class="nav-item">
+            <a href="/login" class="nav-link">Login</a>
+          </li>
+          {{end}}
+          <li class="nav-item">
+            <a href="/ContactUs" class="nav-link">Contact Us</a>
+          </li>
+          <li class="nav-item">
+              <h2>Welcome {{.Username}}</h2>
+
+          </li>
+          
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="pb-3">
+    
+  </div>
+
+{{end}}
+

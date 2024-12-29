@@ -1,0 +1,73 @@
+{{define "form"}}
+{{template "header"}}
+<div class="pt-5">
+
+</div>
+
+<div class="container pt-5">
+  <form action="/search" method="post">
+    <h1 class="p-3">Search Using Staff Name</h1>
+    <div class="mb-3">
+      <label for="firstname" class="form-label">Firstname</label><br>
+      <input type="text" class="form-control" name="firstname"><br>
+      <input type="submit" class="btn-success" value="Search">
+    </div>
+  </form>
+</div>
+
+
+{{end}}
+
+
+{{define "result"}}
+
+{{template "header"}}
+<div class="pt-5">
+
+</div>
+
+<div class="container pt-5">
+<div class="pt-5">
+  <table class="table table-bordered table-dark">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Position</th>
+        <th scope="col">Age</th>
+        <th scope="col">Date of Birth</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Years of Service</th>
+        <th scope="col">Official car?</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{if .}}
+      <tr>
+        <th scope="row">{{.Id}}</th>
+        <td>{{.Firstname}}</td>
+        <td>{{.Lastname}}</td>
+        <td>{{.Position}}</td>
+        <td>{{.Age}}</td>
+        <td>{{.Dateofbirth}}</td>
+        <td>{{.Salary}}</td>
+        <td>{{.Yearsofservice}}</td>
+        <td>{{.Officialcar}}</td>
+        <td><a class="btn btn-sm btn-primary" href="/updatestaffdata?id={{.Id}}">Update</a></td>
+        <td><a class="btn btn-sm btn-danger" href="/deleteinfo?id={{.Id}}">Delete</a></td>
+      </tr>
+      {{end}}
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+{{end}}
+
+
+
+

@@ -1,0 +1,85 @@
+{{template "header"}}
+
+<div class="container p-5 text-center">
+  {{if .}}
+  <div class="container mt-5 mb-5 text-center">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="btn btn-primary">
+          {{.}}
+        </h3>
+      </div>
+  
+    </div>
+  
+  </div>
+  {{end}}
+  <div class="row text-center p-5">
+    <div class="col-md-6 offset-3">
+      <form action="/insertdone" method="post">
+        <h1 class="p-3">Staff Information</h1>
+        <div class="mb-3">
+          <label for="firstname" class="form-label">Firstname</label>
+          <input type="text" class="form-control" name="firstname">
+          <div class="form-text">We'll never share your firstname with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="lastname" class="form-label">Lastname</label>
+          <input type="text" class="form-control" name="lastname">
+          <div class="form-text">We'll never share your lastname with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="position" , class="mb-1 mt-2">Position</label><br>
+          <select name="position" id="position">
+            <option value="PRINCIPAL PARTNER">PRINCIPAL PARTNER</option><br>
+            <option value="PARTNER">PARTNER</option><br>
+            <option value="SENIOR ASSOCIATES">SENIOR ASSOCIATES</option><br>
+            <option value="ASSOCIATES">ASSOCIATES</option><br>
+            <option value="PROJECT ENGINEER">PROJECT ENGINEER</option><br>
+            <option value="GRADUATE ENGINEER">GRADUATE ENGINEER</option><br>
+            <div class="form-text">select the relevant position of the employee.</div>
+
+
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="age" class="form-label">Age</label>
+          <input type="number" step="any" min="0" class="form-control" name="age">
+          <div class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="salary" class="form-label">Salary</label>
+          <input type="number" step="any" min="0" class="form-control" name="salary">
+          <div class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="yearsofservice" class="form-label">Yearsofservice</label>
+          <input type="number" step="any" min="0" class="form-control" name="yearsofservice">
+          <div class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="dateofbirth" class="form-label">Dateofbirth</label>
+          <input type="date" class="form-control" name="dateofbirth">
+          <div class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="officialcar" , class="mb-1 mt-2">Officialcar</label><br>
+          <select name="officialcar" id="officialcar">
+            <option value="TRUE">TRUE</option><br>
+            <option value="FALSE">FALSE</option><br>
+          </select>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
